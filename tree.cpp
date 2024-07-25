@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node
@@ -8,7 +8,7 @@ class Node
     Node *left;
     Node *right;
 
-    Node(int val)
+    Node(int data)
     {
         this->data = data;
         this->left = NULL;
@@ -51,11 +51,37 @@ class Node
         preOrder(root->right);
     }
 
+    void inOrder(Node* root)
+    {
+         if(root==NULL)
+        {
+            return;
+        }
+        inOrder(root->left);
+        cout<<root->data<<" ";
+        inOrder(root->right);
+
+    }
+
+    void postOrder(Node* root)
+    {
+        if(root==NULL)
+        {
+            return;
+        }
+        postOrder(root->left);
+        postOrder(root->right);
+        cout<<root->data<<" ";
+    }
+
     int main()
     {
         Node* root = createTree();
-
-        cout<<"ye rhi value"<<endl<<root->left->data;
-        preOrder(root);
+        postOrder(root);
         return 0;
     }
+
+
+
+    //N aate hi print krlo
+    
